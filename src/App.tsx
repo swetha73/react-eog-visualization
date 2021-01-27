@@ -7,20 +7,11 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from './components/Header';
 import Wrapper from './components/Wrapper';
-import NowWhat from './components/NowWhat';
-import Dashboard from './components/Dashboard/Dashboard';
-import MultiSelect from './components/Dashboard/MultiSelect';
-import { createClient, useQuery } from 'urql';
+import Switches from './components/Switches';
+import MultiChart from './components/MultiChart';
+import Subscription from './Features/Subscription/subscription';
+import MultipleMetrics from './Features/MultipleMetrics/multipleMetrics';
 
-const client = createClient({
-  url: 'https://react.eogresources.com/graphql',
-});
-
-const getMetricsquery = `
-query{
-  getMetrics
-}
-`;
 const store = createStore();
 const theme = createMuiTheme({
   palette: {
@@ -36,26 +27,20 @@ const theme = createMuiTheme({
   },
 });
 
-const App = () => {
-  // const [result] = useQuery({
-  //   getMetricsquery
-  // });
-  // const { fetching, data, error } = result;
-
-  return (
+const App = () => (
   <MuiThemeProvider theme={theme}>
     <CssBaseline />
     <Provider store={store}>
       <Wrapper>
+        <MultipleMetrics />
+        <Subscription />
         <Header />
-        <NowWhat />
-        {/* <MultiSelect metrics={[]} selection={[]} setSelection={null} /> */}
+        <Switches />
+        <MultiChart />
         <ToastContainer />
       </Wrapper>
     </Provider>
   </MuiThemeProvider>
-)
-}
-  
+);
 
 export default App;
