@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import { CardContent, Grid } from '@material-ui/core';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from './components/Header';
 import Wrapper from './components/Wrapper';
@@ -34,9 +35,16 @@ const App = () => (
       <Wrapper>
         <MultipleMetrics />
         <Subscription />
-        <Header />
-        <Switches />
+        <Header />              
+        <Grid container spacing={4} justify="space-between">
+        <Grid item xs={12} sm={7}>
         <MultiChart />
+        </Grid>
+        <Grid item xs={12} sm={4}>
+        <Switches />
+        </Grid>
+      </Grid>
+    
         <ToastContainer />
       </Wrapper>
     </Provider>

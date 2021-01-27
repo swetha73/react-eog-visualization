@@ -9,7 +9,7 @@ export default function SimpleCard(props) {
     card: {
       maxWidth: 150,
       float: 'left',
-      marginLeft: 15,
+      margin: 15,
       background: '#ff76009c'
     },
     title: {
